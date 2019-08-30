@@ -13,20 +13,11 @@ import * as burgerActionTypes from '../../store/actions/index';
 
 class BurgerBuilder extends Component {
   state = {
-    purchasable: false,
-    purchasing: false,
-    loading: false,
-    error: false
+    purchasing: false
   };
 
   componentDidMount() {
-    // axios.get( 'https://my-awesome-burger-5373c.firebaseio.com/ingredients.json' )
-    //     .then( response => {
-    //         this.setState( { ingredients: response.data } );
-    //     } )
-    //     .catch( error => {
-    //         this.setState( { error: true } );
-    //     } );
+    this.props.onInitIngredients();
   }
 
   updatePurchaseState(ingredients) {
@@ -60,7 +51,7 @@ class BurgerBuilder extends Component {
       disabledInfo[key] = disabledInfo[key] <= 0;
     }
     let orderSummary = null;
-    let burger = this.state.error ? (
+    let burger = this.props.error ? (
       <p>Ingredients can't be loaded!</p>
     ) : (
       <Spinner />
@@ -89,9 +80,6 @@ class BurgerBuilder extends Component {
         />
       );
     }
-    if (this.state.loading) {
-      orderSummary = <Spinner />;
-    }
     // {salad: true, meat: false, ...}
     return (
       <Aux>
@@ -109,8 +97,9 @@ class BurgerBuilder extends Component {
 
 const mapStateToProps = state => {
   return {
-    ings: state.ingredients,
-    price: state.totalPrice
+    ings: state.burgerBuilder.ingredients,
+    price: state.burgerBuilder.totalPrice,
+    error: state.burgerBuilder.error
   };
 };
 
@@ -119,7 +108,8 @@ const mapDispatchToProps = dispatch => {
     onIngredientAdded: ingName =>
       dispatch(burgerActionTypes.addIngredient(ingName)),
     onIngredientRemoved: ingName =>
-      dispatch(burgerActionTypes.removeIngredient(ingName))
+      dispatch(burgerActionTypes.removeIngredient(ingName)),
+    onInitIngredients: () => dispatch(burgerActionTypes.initIngredients())
   };
 };
 
