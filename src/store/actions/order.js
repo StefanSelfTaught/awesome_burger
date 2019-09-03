@@ -5,14 +5,14 @@ export const purchaseBurgerSuccess = (id, orderData) => {
   return {
     type: actionTypes.PURCHASE_BURGER_SUCCESS,
     oderId: id,
-    orderData: orderData
+    orderData
   };
 };
 
 export const purchaseBurgerFail = error => {
   return {
     type: actionTypes.PURCHASE_BURGER_FAIL,
-    error: error
+    error
   };
 };
 
@@ -45,14 +45,14 @@ export const purchaseInit = () => {
 export const fetchOrdersSuccess = orders => {
   return {
     type: actionTypes.FETCH_ORDERS_SUCCESS,
-    orders: orders
+    orders
   };
 };
 
 export const fetchOrdersFail = error => {
   return {
     type: actionTypes.FETCH_ORDERS_FAIL,
-    error: error
+    error
   };
 };
 
