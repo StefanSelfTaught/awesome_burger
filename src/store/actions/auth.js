@@ -7,17 +7,18 @@ export const authStart = () => {
   };
 };
 
-export const authSuccess = authData => {
+export const authSuccess = (token, userId) => {
   return {
     type: actionTypes.AUTH_SUCCESS,
-    authData: authData
+    idToken: token,
+    userId
   };
 };
 
 export const authFail = error => {
   return {
     type: actionTypes.AUTH_FAIL,
-    error: error
+    error
   };
 };
 
@@ -25,8 +26,8 @@ export const auth = (email, password, isSignup) => {
   return dispatch => {
     dispatch(authStart());
     const authData = {
-      email: email,
-      password: password,
+      email,
+      password,
       returnSecureToken: true
     };
     let url =
@@ -39,7 +40,7 @@ export const auth = (email, password, isSignup) => {
       .post(url, authData)
       .then(response => {
         console.log(response);
-        dispatch(authSuccess(response.data));
+        dispatch(authSuccess(response.data.idToken, response.data.localId));
       })
       .catch(err => {
         console.log(err);
