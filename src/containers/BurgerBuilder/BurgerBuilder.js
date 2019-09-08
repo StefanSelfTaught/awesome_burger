@@ -5,6 +5,7 @@ import Aux from '../../hoc/Auxx/Auxx';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
+import PurchaseConfirm from '../../components/UI/PurchaseConfirm/PurchaseConfirm';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
@@ -13,7 +14,8 @@ import * as actions from '../../store/actions/index';
 
 class BurgerBuilder extends Component {
   state = {
-    purchasing: false
+    purchasing: false,
+    purchased: this.props.orderPrice
   };
 
   componentDidMount() {
@@ -44,6 +46,10 @@ class BurgerBuilder extends Component {
     this.setState({ purchasing: false });
   };
 
+  purchasedSeen = () => {
+    this.setState({ purchased: false })
+  }
+
   purchaseContinueHandler = () => {
     this.props.onInitPurchase();
     this.props.history.push('/checkout');
@@ -62,6 +68,18 @@ class BurgerBuilder extends Component {
     ) : (
       <Spinner />
     );
+
+    let purchaseConfirm;
+    if(this.props.orderPrice){
+        purchaseConfirm = 
+        ( 
+          <PurchaseConfirm
+            purchasedSeen={this.purchasedSeen}
+            show={this.state.purchased}
+            clicked={this.purchasedSeen}
+          />
+        )
+    }
 
     if (this.props.ings) {
       burger = (
@@ -96,6 +114,7 @@ class BurgerBuilder extends Component {
         >
           {orderSummary}
         </Modal>
+        {purchaseConfirm}
         {burger}
       </Aux>
     );
@@ -107,7 +126,8 @@ const mapStateToProps = state => {
     ings: state.burgerBuilder.ingredients,
     price: state.burgerBuilder.totalPrice,
     error: state.burgerBuilder.error,
-    isAuthenticated: state.auth.token !== null
+    isAuthenticated: state.auth.token !== null,
+    orderPrice: state.order.purchased
   };
 };
 

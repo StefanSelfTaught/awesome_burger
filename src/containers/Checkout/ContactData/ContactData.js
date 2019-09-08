@@ -20,8 +20,6 @@ class ContactData extends Component {
         value: '',
         validation: {
           required: true,
-          minLength: 5,
-          maxLength: 5
         },
         valid: false,
         touched: false
@@ -47,7 +45,10 @@ class ContactData extends Component {
         },
         value: '',
         validation: {
-          required: true
+          required: true,
+          minLength: 5,
+          maxLength: 5,
+          isNumeric: true
         },
         valid: false,
         touched: false
@@ -73,7 +74,8 @@ class ContactData extends Component {
         },
         value: '',
         validation: {
-          required: true
+          required: true,
+          isEmail: true
         },
         valid: false,
         touched: false
@@ -213,7 +215,7 @@ const mapStateToProps = state => {
     price: state.burgerBuilder.totalPrice,
     loading: state.order.loading,
     token: state.auth.token,
-    userId: state.auth.userId
+    userId: state.auth.userId,
   };
 };
 

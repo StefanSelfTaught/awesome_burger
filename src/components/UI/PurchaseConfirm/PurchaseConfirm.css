@@ -1,0 +1,36 @@
+.wrapper {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.message {
+	margin-bottom: 12px;
+}
+
+.ok {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.orders {
+	text-decoration: none;
+	color: #40A4C8;
+	transition: all 0.1s ease;
+	padding: 0;
+}
+
+.orders:hover {
+	border-bottom: 1.5px solid #40A4C8;
+}
+
+@media screen and (max-width: 450px) {
+	.message {
+		font-size: 18px;
+		margin-bottom: 20px;
+	}
+
+	.message2 {
+		font-size: 15px;
+	}
+}

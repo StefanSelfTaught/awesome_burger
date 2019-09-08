@@ -16,12 +16,12 @@ class OrderSummary extends Component {
 
         return (
             <Aux>
-                <h3>Your Order</h3>
-                <p>A delicious burger with the following ingredients:</p>
-                <ul>
+                <h3 style={{ marginBottom: '15px' }}>Your Order</h3>
+                <p style={{ marginBottom: '15px' }}>A delicious burger with the following ingredients:</p>
+                <ul style={{ marginLeft: '35px', marginBottom: '15px' }}>
                     {ingredientSummary}
                 </ul>
-                <p><strong>Total Price: {this.props.price.toFixed( 2 )}</strong></p>
+                <p style={{ marginBottom: '10px' }}><strong>Total Price: {this.props.price.toFixed( 2 )}</strong></p>
                 <p>Continue to Checkout?</p>
                 <Button btnType="Danger" clicked={this.props.purchaseCancelled}>CANCEL</Button>
                 <Button btnType="Success" clicked={this.props.purchaseContinued}>CONTINUE</Button>

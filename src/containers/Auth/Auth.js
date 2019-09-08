@@ -138,7 +138,22 @@ class Auth extends Component {
     let errorMessage = null;
 
     if (this.props.error) {
-      errorMessage = <p>{this.props.error.message}</p>;
+       switch(this.props.error.message){
+        case 'INVALID_PASSWORD':
+          errorMessage = 'Password was wrong!';
+          break;
+        case 'EMAIL_NOT_FOUND':
+          errorMessage = 'Email not found!'
+          break;
+        case 'INVALID_EMAIL':
+          errorMessage = 'Invalid email!'
+          break;
+        case 'MISSING_PASSWORD':
+          errorMessage = 'Invalid password'
+           break;
+        default:
+          errorMessage = this.props.error.message;
+       }
     }
 
     let authRedirect = null;
@@ -148,8 +163,9 @@ class Auth extends Component {
 
     return (
       <div className={classes.Auth}>
+      <h2>{this.state.isSignup ? 'SIGN UP' : 'SIGN IN'}</h2>
         {authRedirect}
-        {errorMessage}
+        <p className={classes.error}>{errorMessage}</p>
         <form onSubmit={this.submitHandler}>
           {form}
           <Button btnType='Success'>SUBMIT</Button>

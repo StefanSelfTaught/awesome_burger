@@ -4,10 +4,11 @@
     background-color: white;
     width: 70%;
     border: 1px solid #ccc;
-    box-shadow: 1px 1px 1px black;
+    box-shadow: 3px 3px 9px 6px rgba(0, 0, 0, .2);
     padding: 16px;
     left: 15%;
-    top: 30%;
+    top: 25%;
+    border-radius: 12px;
     box-sizing: border-box;
     transition: all 0.3s ease-out;
 }

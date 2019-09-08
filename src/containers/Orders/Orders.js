@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import classes from './Orders.css';
 import Order from '../../components/Order/Order';
 import axios from '../../axios-orders';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
@@ -23,7 +23,7 @@ class Orders extends Component {
         />
       ));
     }
-    return <div>{orders}</div>;
+    return <div className={classes.ordersWrapper}>{orders}</div>;
   }
 }
 
@@ -38,7 +38,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchOrders: (token, userId) => dispatch(actions.fetchOrders(token, userId))
+    onFetchOrders: (token, userId) => dispatch(actions.fetchOrders(token, userId)),
   };
 };
 
