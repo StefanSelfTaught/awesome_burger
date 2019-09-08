@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 40px;
     box-sizing: border-box;
     z-index: 90;
 }
@@ -21,8 +21,18 @@
     height: 80%;
 }
 
-@media (max-width: 499px) {
+@media (max-width: 500px) {
     .DesktopOnly {
         display: none;
+    }
+
+    .Toolbar {
+        height: 48.5px;
+    }
+}
+
+@media (max-width: 900px) {
+    .Toolbar {
+        padding: 0 23px; 
     }
 }

@@ -13,3 +13,10 @@
     width: 500px;
   }
 }
+
+.error {
+  margin: 10px 0px;
+  color: red;
+  letter-spacing: 0.5px;
+  font-weight: bolder;
+}

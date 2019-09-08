@@ -7,15 +7,10 @@ import Spinner from './components/UI/Spinner/Spinner';
 import * as actions from './store/actions/index';
 
 const Checkout = lazy(() => import('./containers/Checkout/Checkout'));
-
 const Orders = lazy(() => import('./containers/Orders/Orders'));
-
 const Auth = lazy(() => import('./containers/Auth/Auth'));
-
 const BurgerBuilder = lazy(() => import('./containers/BurgerBuilder/BurgerBuilder'));
-
 const Logout = lazy(() => import('./containers/Auth/Logout/Logout'));
-
 
 class App extends Component {
   componentDidMount() {

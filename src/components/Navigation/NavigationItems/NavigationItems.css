@@ -13,3 +13,9 @@
         flex-flow: row;
     }
 }
+
+@media (max-width: 850px) {
+    .NavigationItems {
+        margin-right: 5px;
+    }
+}

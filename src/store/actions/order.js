@@ -9,6 +9,12 @@ export const purchaseBurgerSuccess = (id, orderData) => {
   };
 };
 
+export const purchaseBurgerFinish = () => {
+  return {
+    type: actionTypes.PURCHASE_BURGER_FINISH,
+  };
+};
+
 export const purchaseBurgerFail = error => {
   return {
     type: actionTypes.PURCHASE_BURGER_FAIL,
@@ -29,6 +35,9 @@ export const purchaseBurger = (orderData, token) => {
       .post('/orders.json?auth=' + token, orderData)
       .then(response => {
         dispatch(purchaseBurgerSuccess(response.data.name, orderData));
+        setTimeout(() => {
+          dispatch(purchaseBurgerFinish());
+        }, 5000);
       })
       .catch(error => {
         dispatch(purchaseBurgerFail(error));
@@ -83,3 +92,8 @@ export const fetchOrders = (token, userId) => {
       });
   };
 };
+
+
+
+
+
