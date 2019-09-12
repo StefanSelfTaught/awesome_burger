@@ -25,6 +25,11 @@ const order = ( props ) => {
                 {ingredientOutput}
                 </ul>
                 <p>Price: <strong>USD {Number.parseFloat(props.price).toFixed(2)}</strong></p>
+                <button 
+                    style={{ marginTop: '10px' }} 
+                    onClick={props.handleDeleteOrder}>
+                    Delete order
+                </button>
             </div>
         </div>
     );
