@@ -93,7 +93,21 @@ export const fetchOrders = (token, userId) => {
   };
 };
 
+export const deleteOrderSuccess = (orderId) => {
+    return {
+      type: actionTypes.DELETE_ORDER_SUCCES,
+      orderId
+    }
+}
 
-
+export const deleteOrder = (token, orderId) => {
+  return dispatch => {
+    fetch('https://my-awesome-burger-5373c.firebaseio.com/orders/' + orderId + '.json?auth=' + token, {
+      method: 'DELETE',
+    }).then(res => {
+      dispatch(deleteOrderSuccess(orderId))
+    })
+  }
+}
 
 
