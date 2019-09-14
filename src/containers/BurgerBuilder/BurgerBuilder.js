@@ -105,7 +105,6 @@ class BurgerBuilder extends Component {
         />
       );
     }
-    // {salad: true, meat: false, ...}
     return (
       <Aux>
         <Modal

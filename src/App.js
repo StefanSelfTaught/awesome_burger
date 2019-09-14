@@ -8,6 +8,7 @@ import * as actions from './store/actions/index';
 
 const Checkout = lazy(() => import('./containers/Checkout/Checkout'));
 const Orders = lazy(() => import('./containers/Orders/Orders'));
+const OrderDetails = lazy(() => import('./components/Order/OrderDetails/OrderDetails'));
 const Auth = lazy(() => import('./containers/Auth/Auth'));
 const BurgerBuilder = lazy(() => import('./containers/BurgerBuilder/BurgerBuilder'));
 const Logout = lazy(() => import('./containers/Auth/Logout/Logout'));
@@ -29,6 +30,7 @@ class App extends Component {
       routes = (
              <Switch>
               <Route path='/checkout' component={Checkout} />
+              <Route path='/orders/:orderId' component={OrderDetails} />
               <Route path='/orders' component={Orders} />
               <Route path='/auth' component={Auth} />
               <Route path='/logout' component={Logout} />

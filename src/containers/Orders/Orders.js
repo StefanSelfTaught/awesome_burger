@@ -17,12 +17,13 @@ class Orders extends Component {
     let orders = <Spinner />;
     if (!this.props.loading) {
       orders = this.props.orders.map(order => (
-        <Order
-          key={order.id}
-          ingredients={order.ingredients}
-          price={order.price}
-          handleDeleteOrder={() => this.props.onDeleteOrder(this.props.token, order.id)}
-        />
+          <Order
+            key={order.id}
+            orderId={order.id}
+            ingredients={order.ingredients}
+            price={order.price}
+            handleDeleteOrder={() => this.props.onDeleteOrder(this.props.token, order.id)}
+          />
       ));
     }
     return <div className={classes.ordersWrapper}>{orders}</div>;

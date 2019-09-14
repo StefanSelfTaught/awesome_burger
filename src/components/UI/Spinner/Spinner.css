@@ -16,6 +16,7 @@
   -ms-transform: translateZ(0);
   transform: translateZ(0);
 }
+
 .Loader:before,
 .Loader:after {
   position: absolute;

@@ -93,6 +93,19 @@ export const fetchOrders = (token, userId) => {
   };
 };
 
+export const deleteOrderStart = () => {
+  return {
+    type: actionTypes.DELETE_ORDER_START
+  };
+};
+
+export const deleteOrderFail = error => {
+  return {
+    type: actionTypes.DELETE_ORDER_FAIL,
+    error
+  };
+};
+
 export const deleteOrderSuccess = (orderId) => {
     return {
       type: actionTypes.DELETE_ORDER_SUCCES,
@@ -102,10 +115,13 @@ export const deleteOrderSuccess = (orderId) => {
 
 export const deleteOrder = (token, orderId) => {
   return dispatch => {
+    dispatch(deleteOrderStart());
     fetch('https://my-awesome-burger-5373c.firebaseio.com/orders/' + orderId + '.json?auth=' + token, {
       method: 'DELETE',
     }).then(res => {
       dispatch(deleteOrderSuccess(orderId))
+    }).catch(err =>{
+      dispatch(deleteOrderFail(err))
     })
   }
 }
