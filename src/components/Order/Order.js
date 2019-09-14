@@ -1,7 +1,9 @@
 import React from 'react';
 import classes from './Order.css';
+import Button from '../UI/Button/Button';
+import { Link } from 'react-router-dom';
 
-const order = ( props ) => {
+const order = props => {
     const ingredients = [];
 
     for ( let ingredientName in props.ingredients ) {
@@ -25,11 +27,19 @@ const order = ( props ) => {
                 {ingredientOutput}
                 </ul>
                 <p>Price: <strong>USD {Number.parseFloat(props.price).toFixed(2)}</strong></p>
-                <button 
-                    style={{ marginTop: '10px' }} 
-                    onClick={props.handleDeleteOrder}>
+                <Button
+                    clicked={props.handleDeleteOrder}
+                    btnType="dangerDelete">
                     Delete order
-                </button>
+                </Button>
+                <Link
+                    to={`/orders/${props.orderId}`} 
+                    exact>
+                        <Button
+                            btnType="successDetails">
+                            View info
+                        </Button>
+                </Link>
             </div>
         </div>
     );

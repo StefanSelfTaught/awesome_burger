@@ -13,7 +13,7 @@
 	transform: scale(1.02);
 	box-shadow: 0 14px 28px rgba(0,0,0,0.20);
 	border: 1px solid #ccc;
-	cursor: pointer;
+/*	cursor: pointer;*/
 }
 
 .info {	
@@ -34,4 +34,8 @@ ul {
 
 .text {
 	margin-bottom: 7px;
+}
+
+.deleteOrder {
+	border: 2px solid #944317;
 }
