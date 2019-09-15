@@ -8,10 +8,14 @@
     overflow: auto;
 }
 
+.burgerOrderInfo {
+    margin: 0;
+}
+
 @media (min-width: 100px) {
     .Burger {
-        width: 350px;
-        height: 250px;
+        width: 200px;
+        height: 170px;
     }
 }
 
@@ -47,5 +51,26 @@
     .Burger {
         width: 550px;
         height: 450px;
+    }
+}
+
+@media (max-width: 865px) {
+    .burgerOrderInfo {
+        width: 400px;
+        height: 360px;
+    }
+}
+
+@media (max-width: 500px) {
+    .burgerOrderInfo {
+        width: 350px;
+        height: 310px;
+    }
+}
+
+@media (max-width: 370px) {
+    .burgerOrderInfo {
+        width: 300px;
+        height: 280px;
     }
 }
