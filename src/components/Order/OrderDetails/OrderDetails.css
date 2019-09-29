@@ -1,0 +1,101 @@
+.wrapper {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.burgerPreview {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-content: center;
+}
+
+.burgerPreview h1 {
+	margin: 40px 0 25px 0;
+}
+
+.orderData {
+	margin-left: 13px;
+}
+
+.orderData h1 {
+	margin: 40px 0 65px 0;
+}
+
+.orderData ul {
+	list-style-type: none;
+	font-size: 18px;
+	margin-left: 0;
+}
+
+.orderData li {
+	margin-bottom: 20px;
+}
+
+.orderData ul span {
+	font-weight: bold;
+	margin-right: 3px;
+}
+
+.goBack {
+	border: none;
+	outline: none;
+	background-color: #ffffff;
+	font-family: 'Nunito Sans', sans-serif;
+	box-shadow: 0rem 0rem 10px 0rem rgba(0,0,0,0.3);
+	border-radius: 5px;
+	width: 100px;
+	height: 34px;
+	position: relative;
+	transition: transform .2s;
+	cursor: pointer;
+	margin-top: 20px;
+}
+
+.goBack:hover{
+	transform: scale(1.07);
+}
+
+@media screen and (max-width: 900px){
+	.wrapper {
+		justify-content: space-evenly;
+	}
+}
+
+@media screen and (max-width: 709px){
+	.orderData {
+		order: 2;
+		margin-bottom: 25px;
+	}
+
+	.orderData h1 {
+		margin: 0px 0 45px 0;
+	}
+
+	.orderData li {
+		margin-bottom: 15px;
+	}
+
+	.burgerPreview h1 {
+		margin: 5px 0 20px 0;
+	}		
+
+	.burgerPreview {
+		order: 1;
+	}
+}
+
+@media (max-width: 500px) {
+	.orderData h1 {
+		font-size: 27px;
+	}
+
+	.burgerPreview h1 {
+		font-size: 27px;
+	}
+
+	.orderData ul {
+		font-size: 16px;
+	}
+}

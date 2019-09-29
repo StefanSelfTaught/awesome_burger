@@ -10,6 +10,7 @@
 
 .burgerOrderInfo {
     margin: 0;
+    overflow: hidden;
 }
 
 @media (min-width: 100px) {
