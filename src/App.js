@@ -2,6 +2,7 @@ import React, {Component, Suspense, lazy } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
 import Layout from './hoc/Layout/Layout';
 import Spinner from './components/UI/Spinner/Spinner';
 import * as actions from './store/actions/index';
@@ -10,7 +11,6 @@ const Checkout = lazy(() => import('./containers/Checkout/Checkout'));
 const Orders = lazy(() => import('./containers/Orders/Orders'));
 const OrderDetails = lazy(() => import('./components/Order/OrderDetails/OrderDetails'));
 const Auth = lazy(() => import('./containers/Auth/Auth'));
-const BurgerBuilder = lazy(() => import('./containers/BurgerBuilder/BurgerBuilder'));
 const Logout = lazy(() => import('./containers/Auth/Logout/Logout'));
 
 class App extends Component {
